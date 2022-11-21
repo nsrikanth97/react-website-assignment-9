@@ -184,7 +184,7 @@ function SignUp() {
       clearFields();
       setLoginState(true);
       setFullName(response.data.fullName);
-      navigate('/aboutUs');
+      navigate('/');
     } else if(response.message === 'UNIQUE_EMAIL_ERROR'){
       alertWindowSpan.innerHTML = ErrorMessage.UNIQUE_EMAIL_ERROR;
       let emailInput = document.querySelector(
@@ -209,10 +209,10 @@ function SignUp() {
 
   return (
     <div className="container">
-      <form noValidate onSubmit={(e) => submitFunction(e)}>
+      <form noValidate onSubmit={(e) => submitFunction(e)} className="container">
         <h2 className="m-3 text-center">Create account </h2>
         <div
-            className="alert alert-danger alert-dismissible fade hide signup"
+            className="row alert alert-danger alert-dismissible fade hide signup"
             role="alert"
           >
             <span className="alert-windown-signup-page"></span>
@@ -309,7 +309,7 @@ function SignUp() {
               required
             />
           </div>
-          <div className="invalid-feedback password offset-sm-4"></div>
+          <div className="invalid-feedback password"></div>
         </div>
         <div className="form-group row mb-3">
           <label
